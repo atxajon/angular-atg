@@ -1,1 +1,1 @@
-var app = angular.module('atgchallengeapi',[]);
+var app = angular.module('atgchallengeapi', []);

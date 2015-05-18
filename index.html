@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="atgchallengeapi">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Angular ATG challenge API</title>
-    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controllers/SignUpTenant.js"></script>
 </head>
 <body>
-<div class="container main-frame" ng-app="atgchallengeapi"
-     ng-controller="mainController" ng-init="init()">
+
+<div class="container main-frame" ng-controller="SignUpTenant">
     <h3>Use the form below to sign up</h3>
-    <form action="">
-        E-mail: <input type="text" name="e-mail"/>
+
+    <!--<form ng-submit="processForm(signUpForm)" name="signUpForm">-->
+    <form>
+        <div>Name: <input type="text" ng-model="signUpForm.name" name="name"/><span ng-show="nameRequired">{{nameRequired}}</span></div>
+        <div>E-mail: <input type="text" ng-model="signUpForm.email" name="email"/><span ng-show="emailRequired">{{emailRequired}}</span></div>
+        <div>Password: <input type="password" ng-model="signUpForm.password" name="password"/></div>
+        <div><input type="submit" id="submit" value="Submit" ng-click="submitData()"/><span ng-show="passwordRequired">{{passwordRequired}}</span></div>
     </form>
+    <div>
+        {{signUpForm}}
+    </div>
 </div>
 </body>
 </html>
